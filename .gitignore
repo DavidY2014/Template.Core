@@ -1,0 +1,26 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs/Nba.Core.WebUI
+/Nba.Core.Common/bin
+/Nba.Core.Common/obj
+/Nba.Core.DataImplement/bin
+/Nba.Core.DataImplement/obj
+/Nba.Core.EntityFramework/bin
+/Nba.Core.EntityFramework/obj
+/Nba.Core.IData/bin
+/Nba.Core.IData/obj
+/Nba.Core.IService/bin
+/Nba.Core.IService/obj
+/Nba.Core.Models/bin
+/Nba.Core.Models/obj
+/Nba.Core.ServiceImplement/bin
+/Nba.Core.ServiceImplement/obj
+/Nba.Core.Tools/obj
+/Nba.Core.WebAPI/bin
+/Nba.Core.WebAPI/obj
+/Nba.Core.WebUI/bin
+/Nba.Core.WebUI/obj
+/Nba.Core.WebUI/appsettings.json
+/Nba.Core.WebUI/appsettings.Development.json

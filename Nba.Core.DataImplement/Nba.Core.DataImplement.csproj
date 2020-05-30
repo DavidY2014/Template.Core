@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nba.Core.Common\Nba.Core.Common.csproj" />
+    <ProjectReference Include="..\Nba.Core.EntityFramework\Nba.Core.EntityFramework.csproj" />
+    <ProjectReference Include="..\Nba.Core.IData\Nba.Core.IData.csproj" />
+  </ItemGroup>
+
+</Project>

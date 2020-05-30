@@ -1,0 +1,153 @@
+﻿@{
+    ViewData["Title"] = "工作台";
+    Layout = "~/BasePages/_Layout.cshtml";
+}
+<blockquote class="layui-elem-quote">
+    工作台
+</blockquote>
+<div id="app" class="layui-fluid">
+    @*<fieldset class="layui-elem-field layui-field-title">
+        <legend>比赛日程看板</legend>
+    </fieldset>*@
+
+    @*<div class="layui-row layui-col-space20">
+            <div class="layui-col-md4 manage-console-enterreport">
+                <div class=" manage-console-enterreport-today">
+                    <div class="manage-console-enterreport-title"><span>今日</span></div>
+                    <hr class="layui-bg-blue">
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">队伍：</p>
+                    </div>
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">时刻：</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4 manage-console-enterreport">
+                <div class="manage-console-enterreport-week">
+                    <div class="manage-console-enterreport-title"><span>本周</span></div>
+                    <hr class="layui-bg-blue">
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">队伍：</p>
+                    </div>
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">时刻：</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4 manage-console-enterreport ">
+                <div class="manage-console-enterreport-Month">
+                    <div class="manage-console-enterreport-title"><span>本月</span></div>
+                    <hr class="layui-bg-blue">
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">队伍：</p>
+                    </div>
+                    <div class="layui-col-md6">
+                        <p class="manage-console-enterreport-score2">时刻：</p>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<fieldset class="layui-elem-field layui-field-title">
+        <legend>今日预测</legend>
+    </fieldset>*@
+    @*<div class="layui-row">
+            <table class="layui-table" lay-skin="line">
+                <thead>
+                    <tr>
+                        <th>东部</th>
+                        <th>西部</th>
+                        <th>比赛时间</th>
+                        <th>结果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>*@
+
+    <!--搞成折线图-->>
+    @*<fieldset class="layui-elem-field layui-field-title">
+        <legend>预测趋势图</legend>
+    </fieldset>*@
+    @*<div class="layui-row">
+            <div class="layui-row" id="content_table">
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>*@
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>所有队伍信息</legend>
+    </fieldset>
+    <div class="row mx-auto w-75">
+        @*<div class="col-6">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#myModal">新增</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" @click="saveRows">保存</button>
+            </div>
+            <button type="button" class="btn btn-outline-warning btn-sm" @click="delRows">删除</button>
+        </div>*@
+        <div class="col-6">
+            <div class="input-group">
+                <input type="text" class="form-control input-group-sm" placeholder="输入设备编号进行搜索">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-auto w-75">
+        <div class="col-12">
+            <table class="table table-hover table-success">
+                <thead class="thead-default">
+                    <tr>
+                        <th>序号</th>
+                        <th>赢得队</th>
+                        <th>输的队</th>
+                        <th>概率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in result_list">
+                        @*<td><input type="checkbox" :value="index" v-model="checkedRows"></td>*@
+                        <td>{{item.id}}</td>
+                        <td>{{item.winTeam}}</td>
+                        <td>{{item.loseTeam}}</td>
+                        <td>{{item.probility}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                result_list: [],
+            },
+            mounted() {
+                axios
+                    .get('http://129.28.178.153:5726/api/Predict/GetAllTeamInfos')
+                    .then(response => (this.result_list = response.data.data))
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        })
+
+    </script>
+}
+

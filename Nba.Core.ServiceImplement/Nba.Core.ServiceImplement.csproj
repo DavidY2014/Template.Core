@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nba.Core.Common\Nba.Core.Common.csproj" />
+    <ProjectReference Include="..\Nba.Core.IData\Nba.Core.IData.csproj" />
+    <ProjectReference Include="..\Nba.Core.IService\Nba.Core.IService.csproj" />
+  </ItemGroup>
+
+</Project>
